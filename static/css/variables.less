@@ -1,0 +1,71 @@
+/* COLORS */
+@white: 				#fff;
+@default: 				#343549;
+
+
+/* SIZES */
+
+/* FONTS */
+@normal_font:			Verdana,Arial,sans-serif;
+
+
+/* TRANSITIONS */
+.opacity(@opacity: 0.5) {
+    -moz-opacity: @opacity;
+    -khtml-opacity: @opacity;
+    -webkit-opacity: @opacity;
+    opacity: @opacity;
+    @opperc: @opacity * 100;
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+    filter: ~"alpha(opacity=@{opperc})";
+}
+.background-clip{
+    -moz-background-clip: padding; 
+    -webkit-background-clip: padding-box; 
+    background-clip: padding-box;
+}
+.border-radius(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+    -webkit-border-top-right-radius: @topright;
+    -webkit-border-bottom-right-radius: @bottomright;
+    -webkit-border-bottom-left-radius: @bottomleft;
+    -webkit-border-top-left-radius: @topleft;
+    -moz-border-radius-topright: @topright;
+    -moz-border-radius-bottomright: @bottomright;
+    -moz-border-radius-bottomleft: @bottomleft;
+    -moz-border-radius-topleft: @topleft;
+    border-top-right-radius: @topright;
+    border-bottom-right-radius: @bottomright;
+    border-bottom-left-radius: @bottomleft;
+    border-top-left-radius: @topleft;
+    .background-clip;
+}
+.transition(@duration:0.2s, @ease:ease-out) {
+    -webkit-transition: all @duration @ease;
+    -moz-transition: all @duration @ease;
+    -o-transition: all @duration @ease;
+    transition: all @duration @ease;
+}
+.box-shadow(@arguments) {
+    -webkit-box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    box-shadow: @arguments;
+}
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+    background: @color;
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(0, @start),color-stop(1, @stop));
+    background: -ms-linear-gradient(bottom,@start,@stop);
+    background: -moz-linear-gradient(center bottom,@start 0%,@stop 100%);
+    background: -o-linear-gradient(@stop,@start);
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@stop,@start));
+}
+.inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
+    -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+    -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+    box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+}
+.rotate(@angle: 180deg){
+    -webkit-transform:	rotate(@angle);
+    -moz-transform:		rotate(@angle);
+    -o-transform:		rotate(@angle);
+    -ms-transform:		rotate(@angle);
+}
