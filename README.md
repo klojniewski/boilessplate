@@ -163,18 +163,22 @@ wymiary.
     display: inline-block;
     overflow: hidden;
     box-sizing: border-box;
+    
     width: 100px;
     height: 100px;
+    
     padding: 10px;
-    border: 10px solid #333;
     margin: 10px;
 
-    /* Inne */
-    background: #000;
-    color: #fff
+    /* Fonty */
     font-family: sans-serif;
     font-size: 16px;
     text-align: right;
+    
+    /* Kolory, tło, obramowanie */
+    background: #000;
+    border: 10px solid #333;
+    color: #fff
 }
 ```
 
