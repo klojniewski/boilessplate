@@ -39,6 +39,10 @@
     border-top-left-radius: @topleft;
     .background-clip;
 }
+.border-radius-simple(@radius) {
+    .border-radius(@radius, @radius, @radius, @radius);
+    .background-clip;
+}
 .transition(@duration:0.2s, @ease:ease-out) {
     -webkit-transition: all @duration @ease;
     -moz-transition: all @duration @ease;
@@ -68,4 +72,9 @@
     -moz-transform:		rotate(@angle);
     -o-transform:		rotate(@angle);
     -ms-transform:		rotate(@angle);
+}
+.reset-ul() {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
