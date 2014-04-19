@@ -7,9 +7,8 @@
 3. [Komentarze](#comments)
 4. [Format](#format)
 5. [Nazewnictwo](#naming)
-6. [Przykłady praktyczne](#example)
-7. [Organizacja](#organization)
-8. [Przygotowanie i wdrożenie](#build-and-deployment)
+6. [Organizacja](#organization)
+7. [Przygotowanie i wdrożenie](#build-and-deployment)
 
 
 <a name="general-principles"></a>
@@ -35,9 +34,7 @@ W całym projekcie stosuj konsekwentnie tylko jeden styl wcięć. Nie zapominaj,
 że wcięcia służą przede wszystkim czytelności kodu.
 
 * _Nigdy_ nie stosuj równolegle spacji i tabulatorów.
-* Wybierz jedną z powyższych metod do tworzenia wcięć (najlepiej spacje) i
-  trzymaj się jej.
-* Jeśli używasz spacji, wybierz stałą liczbę znaków dla jednego poziomu wcięcia
+* Używaj spacji, wybierz stałą liczbę znaków dla jednego poziomu wcięcia
   (najlepiej cztery).
 
 Wskazówka: włącz w swoim edytorze kodu opcję pokazywania znaków
@@ -71,31 +68,13 @@ wstawiania komentarzy w ustalonej wcześniej postaci.
 
 ```css
 /* ==========================================================================
-   Blok komentarzy sekcji
+   Comments about section
    ========================================================================== */
 
-/* Blok komentarzy podsekcji
+/* Comments about subsection
    ========================================================================== */
 
-/**
- * Krótki opis z zastosowaniem formatowania w stylu Doxygen
- *
- * Długi opis - pierwsze zdanie rozpoczyna się tutaj i biegnie jeszcze przez
- * chwilę, zajmując cały wiersz, aby wreszcie zakończyć się konkluzją w tym
- * miejscu, u dołu akapitu.
- *
- * Dłuższy opis jest najlepszym miejscem do umieszczenia szczegółowych
- * objaśnień i dokumentacji. Może zawierać przykładowy kod HTML, adresy
- * internetowe oraz inne przydatne informacje.
- *
- * @tag To jest znacznik o nazwie 'tag'
- *
- * @todo To jest opis todo, wskazujący istotne zadanie, które należy wykonać
- *   później. Zawija się po około 80 znakach a kolejne linie są wcięte za
- *   pomocą 2 spacji.
- */
-
-/* Podstawowy komentarz */
+/* Basic comment */
 ```
 
 
@@ -113,7 +92,7 @@ wskazywanie osób odpowiedzialnych za określone poprawki stanie się znacznie
 * W bloku reguł umieszczaj jedną deklarację w wierszu.
 * Stosuj jeden poziom wcięcia dla każdej deklaracji.
 * Wstawiaj jedną spację po dwukropku w deklaracji.
-* Używaj wartości pisanych małymi literami i skrótów, np. `#aaa`.
+* Używaj wartości pisanych małymi literami i skrótów, np. `.aaa`.
 * Stosuj pojedyncze i podwójne cudzysłowy w sposób spójny. Preferuj jednak
   podwójne, jak na przykład `content: ""`.
 * Wyodrędbniaj cudzysłowami wartości atrybutów w selektorach, na przykład
@@ -131,14 +110,14 @@ wskazywanie osób odpowiedzialnych za określone poprawki stanie się znacznie
 .selektor-1,
 .selektor-2,
 .selektor-3[type="text"] {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     display: block;
     font-family: helvetica, arial, sans-serif;
     color: #333;
     background: #fff;
     background: linear-gradient(#fff, rgba(0, 0, 0, 0.8));
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 ```
 
@@ -189,16 +168,6 @@ będą rozrzucone po całym bloku.
 
 #### Wyjątki i drobne odstępstwa
 
-Duże fragmenty arkusza zawierające pojedyncze deklaracje można formatować nieco
-inaczej, ujmując całość w jednym wierszu. W takim wypadku po nawiasie
-otwierającym oraz przed zamykającym należy wstawić spację.
-
-```css
-.selektor-1 { width: 10%; }
-.selektor-2 { width: 20%; }
-.selektor-3 { width: 30%; }
-```
-
 Dłuższe, oddzielone przecinkami właściwości, np. zestawy gradientów albo cieni,
 można rozbijać na kilka linii, by poprawić czytelność i ułatwić generowanie
 przejrzystych zestawień zmian. Poniższy przykład obrazuje jedno z możliwych
@@ -239,7 +208,7 @@ niżej odnoszą się do jednego z nich - Sass.
     @extend .inna-regula;
     @include clearfix();
     @include box-sizing(border-box);
-    width: x-jednostka-siatki(1);
+    width: x-container-width(1);
     // pozostałe deklaracje
 }
 ```
@@ -254,6 +223,7 @@ CSS.
 
 * Unikaj _zbyt częstego_ wykorzystywania skróconych nazw klas. Nie komplikuj
   kodu ponad potrzebę.
+* Nazwy class powinny odpowiadać przechowywanej zawartości elementu a nie sposobie jego wyświetlania.
 * Używaj jasnych, kojarzących się, dobrze przemyślanych nazw klas.
 * Wybierz zrozumiały i spójny wzorzec tworzenia nazw, który będzie zrozumiały
   zarówno w trakcie lektury kodu HTML, jak i CSS.
@@ -266,95 +236,26 @@ CSS.
 .m-prz {
     overflow: auto;
 }
-
-.tk {
+.column-left {
+    float: right;
+}
+.bk {
     background: #000;
 }
 
 /* Przykład kodu z lepszymi nazwami */
 
-.mozna-przewijac {
+.container {
     overflow: auto;
 }
 
-.tekst-kolumny {
+.main-col {
     background: #000;
 }
 ```
 
-
-<a name="example"></a>
-## 6. Przykłady praktyczne
-
-Propozycje zastosowania opisanych wcześniej konwencji.
-
-```css
-/* ==========================================================================
-   Siatka
-   ========================================================================== */
-
-/**
- * Przykładowy kod HTML:
- *
- * <div class="siatka">
- *     <div class="komorka komorka-5"></div>
- *     <div class="komorka komorka-5"></div>
- * </div>
- */
-
-.siatka {
-    overflow: visible;
-    height: 100%;
-    /* Zapobiegaj zawijaniu tekstu w komórkach z inline-block */
-    white-space: nowrap;
-    /* Usuń spacje między komórkami */
-    font-size: 0;
-}
-
-.komorka {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    box-sizing: border-box;
-    width: 20%;
-    height: 100%;
-    /* Ustaw odstępy między komórkami */
-    padding: 0 10px;
-    border: 2px solid #333;
-    vertical-align: top;
-    /* Resetuj spacje */
-    white-space: normal;
-    /* Resetuj rozmiar czcionki */
-    font-size: 16px;
-}
-
-/* Stany komórek */
-
-.komorka.jest-animowana {
-    background-color: #fffdec;
-}
-
-/* Wymiary komorek
-   ========================================================================== */
-
-.komorka-1 { width: 10%; }
-.komorka-2 { width: 20%; }
-.komorka-3 { width: 30%; }
-.komorka-4 { width: 40%; }
-.komorka-5 { width: 50%; }
-
-/* Modyfikacje komorek
-   ========================================================================== */
-
-.komorka--szczegoly,
-.komorka--istotne {
-    border-width: 4px;
-}
-```
-
-
 <a name="organization"></a>
-## 7. Organizacja
+## 6. Organizacja
 
 Odpowiednia organizacja jest istotnym elementem tworzenia każdej bazy kodu CSS.
 W przypadku dużych baz to wręcz kwestia kluczowa.
@@ -367,7 +268,7 @@ W przypadku dużych baz to wręcz kwestia kluczowa.
 
 
 <a name="build-and-deployment"></a>
-## 8. Przygotowanie i wdrożenie
+## 7. Przygotowanie i wdrożenie
 
 W projektach powinno się zawsze wdrażać pewne ogólne zasady, według których kod
 źródłowy może być analizowany, testowany, kompresowany i wersjonowany przed
