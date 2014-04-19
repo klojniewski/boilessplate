@@ -9,6 +9,7 @@
 5. [Nazewnictwo](#naming)
 6. [Organizacja](#organization)
 7. [Przygotowanie i wdrożenie](#build-and-deployment)
+8. [Inne](#others)
 
 
 <a name="general-principles"></a>
@@ -276,4 +277,16 @@ wdrożeniem. Doskonałym narzędziem służącym do tego celu jest
 [grunt](https://github.com/cowboy/grunt) autorstwa Bena Almana.
 
 
-<a name="acknowledgements"></a>
+<a name="others"></a>
+## 8. Inne
+
+* Staraj się używać CSS Sprites.
+* Dobrze jest na samym końcu skompresować obrazki [pngPanda](https://tinypng.com/), [imageOptim](https://github.com/JamieMason/ImageOptim-CLI).
+* Gradienty rób przy pomocy CSS: [Gradient Editor](http://www.colorzilla.com/gradient-editor/).
+* Trójkąty rób przy pomocy :after / :before i CSS: [Triangle Generator](http://apps.eky.hk/css-triangle-generator/).
+* Wykorzystuj tagi HTML5 (header, section, aside, nav, figure).
+* Miniaturki obrazków obejmuj figure.
+* #ID nie używamy do stylowania.
+* Labele w formularzu powinny mieć atrybut for.
+* Nigdy nie używaj !important.
+* Kod JS sprawdzaj przy pomocy [JSLINT](http://www.jslint.com/).
